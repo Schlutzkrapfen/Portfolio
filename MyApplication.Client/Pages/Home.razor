@@ -1,0 +1,287 @@
+﻿@using Models
+@using System.Runtime.InteropServices
+
+@page "/"
+
+<PageTitle>Portfolio</PageTitle>
+
+<MudText Typo="Typo.h2" GutterBottom="true">David Messner</MudText>
+<MudText > Messner</MudText>
+<MudText Type="Typo.h3" GutterBottom="true">Projects</MudText>
+<MudText Typo="Typo.h5" >Filter</MudText>
+<MudExpansionPanels Class="mb-8">
+<MudItem  >
+<MudExpansionPanel Text="Programming Languges" GutterBottom="true" Expanded="true">
+<MudChipSet @bind-SelectedValues="_selectedScripts" SelectionMode="SelectionMode.MultiSelection" CheckMark="_checkMark" Variant="Variant.Text" Color="Color.Info">
+    <MudChip Value="@("C#")" />
+    <MudChip Value="@("Gdscript")" />
+    <MudChip Value="@("C++")" />
+    <MudChip Value="@("Blueprints")" />
+    <MudChip Value="@("JavaScript")" />
+    <MudChip Value="@("GML Code")" />
+</MudChipSet>
+</MudExpansionPanel>
+<MudExpansionPanel Text="Engine" GutterBottom="true" Expanded="true">
+<MudChipSet @bind-SelectedValues="_selectedEngines" SelectionMode="SelectionMode.MultiSelection" CheckMark="_checkMark" Variant="Variant.Text" Color="Color.Info">
+    <MudChip Value="@("Godot")" />
+    <MudChip Value="@("Unity")" />
+    <MudChip Value="@("Unreal")" />
+    <MudChip Value="@("Gamemaker")" />
+    <MudChip Value="@("Own Game Engine")" />
+</MudChipSet>
+</MudExpansionPanel>
+</MudItem>
+
+<MudItem >
+<MudExpansionPanel Text="Role" GutterBottom="true" Expanded="true">
+<MudChipSet @bind-SelectedValues="_selectedRole" SelectionMode="SelectionMode.MultiSelection" CheckMark="_checkMark" Variant="Variant.Text" Color="Color.Info">
+    <MudChip Value="@("Ui")" />
+    <MudChip Value="@("Lead Developer")" />
+    <MudChip Value="@("Main Programmer")" />
+    <MudChip Value="@("Game Designer")" />
+ </MudChipSet>
+</MudExpansionPanel>
+<MudExpansionPanel Text="Size" GutterBottom="true" Expanded="true">
+<MudChipSet @bind-SelectedValues="_selectedSize" SelectionMode="SelectionMode.MultiSelection" CheckMark="_checkMark" Variant="Variant.Text" Color="Color.Info">
+    <MudChip Value="@("Single Project")"/>
+    <MudChip Value="@("Duos")" />
+    <MudChip Value="@("Trios")" />
+    <MudChip Value="@("More than 4")" />
+ </MudChipSet>
+</MudExpansionPanel>
+</MudItem>
+</MudExpansionPanels>
+
+@foreach(ProjectNames item in Enum.GetValues(typeof(ProjectNames)))
+{
+
+@if(ProjectVisible((int)item)){
+<MudCard>
+
+    <MudCardMedia Image=@Images[item] Height="300" />
+    <MudCardContent>
+        <MudText Typo="Typo.h5">@ParseEnumToTitle(item)</MudText>
+        <MudText Typo="Typo.body2">
+            <MudHidden Breakpoint.Md>
+        @texts[item]
+</MudHidden>
+     </MudText>
+
+        
+    </MudCardContent>
+    <MudCardActions>
+    @if(linkToItch.ContainsKey(item))
+    {
+        <MudIconButton Icon="@ItchIcon"  Href=@linkToItch[item] Color="Color.Primary"></MudIconButton>
+    }
+    @if(linkToSteam.ContainsKey(item))
+    {
+        <MudIconButton Icon="@Icons.Custom.Brands.Steam" Variant="Variant.Text" Href=@linkToSteam[item] Color="Color.Primary"></MudIconButton>
+
+
+    }
+        <MudSpacer></MudSpacer>
+   <MudChipSet T="string">
+       @foreach (var item in Projectinfo[(int)item
+       ])
+        {
+            <MudChip T="string">@item</MudChip>
+        }
+</MudChipSet>
+    </MudCardActions>
+</MudCard>
+<MudDivider DividerType="DividerType.Middle" Class="my-6"/>
+}
+}
+
+ @code
+{
+    private bool _checkMark = true;
+    private IReadOnlyCollection<string> _selectedScripts = ["JavaScript","C++","C#","Blueprints","Gdscript","GML Code"];
+    private IReadOnlyCollection<string> _selectedEngines = ["Godot","Unity","Unreal","Gamemaker","Own Game Engine"];
+    private IReadOnlyCollection<string> _selectedRole = ["Ui","Lead Developer","Main Programmer", "Game Designer"];
+    private IReadOnlyCollection<string> _selectedSize = ["Single Project","Duos","Trios", "More than 4"];
+    
+
+ private const string ItchIcon =@"<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 576' fill='currentColor'><path d='M71.9 34.8C50.2 47.7 7.4 96.8 7 109.7l0 21.3c0 27.1 25.3 50.8 48.2 50.8 27.6 0 50.5-22.8 50.5-50 0 27.1 22.2 50 49.8 50s49-22.8 49-50c0 27.1 23.6 50 51.2 50l.5 0c27.6 0 51.2-22.8 51.2-50 0 27.1 21.5 50 49 50s49.8-22.8 49.8-50c0 27.1 23 50 50.5 50 23 0 48.3-23.8 48.3-50.8l0-21.3c-.4-12.9-43.2-62.1-64.9-75-67.4-2.3-114.2-2.7-184-2.7S91.1 33.1 71.9 34.8zM204.2 169.2c-22 38.4-77.9 38.7-99.8 .2-13.2 23.1-43.2 32.1-56 27.7-3.9 40.2-13.7 237.1 17.7 269.2 80 18.7 302.1 18.1 379.8 0 31.6-32.3 21.3-232 17.7-269.2-12.9 4.4-42.9-4.6-56-27.7-22 38.5-77.8 38.1-99.8-.2-7.1 12.5-23 28.9-51.8 28.9-10.4 .3-20.8-2.2-29.9-7.3s-16.7-12.6-21.9-21.6l0 0zm-41.6 53.8c16.5 0 31.1 0 49.2 19.8 29.3-3 58.9-3 88.2 0 18.2-19.7 32.8-19.7 49.2-19.7 52.3 0 65.2 77.5 83.9 144.4 17.3 62.2-5.5 63.7-34 63.7-42.1-1.6-65.5-32.2-65.5-62.8-39.3 6.4-101.9 8.8-155.6 0 0 30.6-23.3 61.2-65.5 62.8-28.4-.1-51.2-1.6-33.9-63.7 18.7-67 31.6-144.4 83.9-144.4l0-.1zM256 270.8s-44.4 40.8-52.4 55.2l29-1.2 0 25.3c0 1.5 21.3 .2 23.3 .2 11.6 .5 23.3 1 23.3-.2l0-25.3 29 1.2c-8-14.5-52.4-55.2-52.4-55.2l.1 0z'/></svg>";
+private string ParseEnumToTitle(ProjectNames myEnum)
+{
+    return myEnum.ToString().Replace('_', ' ');
+}
+private bool ProjectVisible(int x)
+ { 
+        if (_selectedRole.Count == 0||
+        _selectedEngines.Count == 0||
+        _selectedScripts.Count ==0||
+        _selectedSize.Count ==0)
+        {
+            return false;
+        }
+    bool[] Info =  new bool[4];
+   for(int i = 0; i< Info.Length;i++)
+   {
+    Info[i] = false;
+
+   } 
+    foreach (string item in Projectinfo[x])
+    {
+        if(_selectedRole.Contains(item))
+        {
+            Info[0] = true;
+        }
+        if (_selectedEngines.Contains(item))
+        {
+            Info[1] = true;
+        }
+        if(_selectedScripts.Contains(item))
+        {
+            Info[2] = true;
+        }
+        if(_selectedSize.Contains(item))
+        {
+            Info[3] = true;
+        }
+    }
+    foreach(bool item in Info)
+    {
+        if(!item)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+  
+
+
+private Dictionary<int,string[]> Projectinfo =>  FillDictionary();
+
+private Dictionary<int, string[]> FillDictionary()
+{
+    var dict = new Dictionary<int, string[]>();
+    dict.Add((int)ProjectNames.The_Normal_Boxing_Game, new string[] {
+        "Gdscript", "Godot", "Ui", "Lead Developer", "Main Programmer", "Single Project"
+    });
+    dict.Add((int)ProjectNames.Flying_Frogs, new string[] {
+        "Gdscript","C#", "Godot", "Ui", "Lead Developer", "Main Programmer", "More than 4"
+    });
+    dict.Add((int)ProjectNames.Remains_Of_The_Rust, new string[] {
+        "Gdscript", "Godot", "Lead Developer", "Main Programmer", "More than 4","Game Designer"
+    });
+    dict.Add((int)ProjectNames.Määähdreascher, new string[] {
+        "C#", "Unity", "Ui", "More than 4",
+    });
+    dict.Add((int)ProjectNames.Watten_against_Bots, new string[] {
+        "JavaScript", "Own Game Engine","Ui", "Lead Developer", "Main Programmer", "Single Project","Game Designer", 
+    });
+    dict.Add((int)ProjectNames.Inextinguishable, new string[] {
+        "Gdscript", "Own Game Engine","Ui", "Lead Developer", "Main Programmer", "Duos","Game Designer"
+    });
+    dict.Add((int)ProjectNames.Reflection_is_the_best_Defence, new string[] {
+        "GML Code", "Gamemaker", "Lead Developer", "Main Programmer", "Duos","Game Designer"
+    });
+    dict.Add((int)ProjectNames.Wired_West, new string[] {
+        "C#", "Godot", "Ui", "Lead Developer", "More than 4","Game Designer"
+    });
+    dict.Add((int)ProjectNames.Fading_lights, new string[] {
+        "Blueprints", "Unreal",  "Lead Developer", "Main Programmer", "Trios","Game Designer"
+    });
+    dict.Add((int)ProjectNames.Storm_Robber, new string[] {
+        "Gdscript", "Godot",  "Lead Developer", "Main Programmer", "Duos","Game Designer"
+    });
+    dict.Add((int)ProjectNames.Cult_Of_Fire, new string[] {
+        "C#", "Unity",  "Lead Developer", "Main programmer","Game Designer","More than 4",
+    });
+    dict.Add((int)ProjectNames.I_Have_Been_Bitten, new string[] {
+        "C#", "Unity", "Game Designer", "Trios"
+    });
+    return dict;
+}
+private Dictionary<ProjectNames, string> texts => new Dictionary<ProjectNames, string>
+{
+    { ProjectNames.The_Normal_Boxing_Game, 
+    new string ("The Normal Boxing Game is an engaging ﬁghting game The game introduces a unique twist to the traditional ﬁghting genre, where each break in the ﬁght transitions into a mini-game, oﬀering players a variety of ways to defeat their enemies. This was my ﬁrst venture into game development, and I was responsiblefor all aspects of the game’s creation.") },
+    { ProjectNames.Flying_Frogs, 
+    new string ("Flying Frogs, a fast-paced multiplayer game where the mantra is: you are what you eat! Up to four players can compete in this frogtastic frenzy. Your goal? Survive as a fly for as long as possible to rack up points. But be on guard – other players are out to catch you and take your place as the fly!With simple controls and a dose of humor, “Flying Frogs“ offers rapid action and strategic gameplay. Use cunning flight maneuvers to evade your fellow players or team up to become the top fly in the game.") },
+    { ProjectNames.Remains_Of_The_Rust, 
+    new string ("Remains of the Rust is a top-down horror game that takes players through a haunted mansion This game was a product of a Gamejam. The development process was a collaborative eﬀort with three strangers I met on the internet, all of us with varying skill levels. As the main programmer, I also lent my coding expertise to others on the team and worked many on the Game Feeling and Atmosphere")},
+    { ProjectNames.Inextinguishable, 
+    new string("inextinguishable is a Shoot-'em-up survival Game where you are a ﬁre elemental born from a Bonﬁre, left behind by humans in a forest. The forest spirits don't are too happy to see ﬁre in the Forest and are coming to extinguish you. Survive their attack a certain time and you can live on.The game was created collaboratively over a semester from the ground up using SFML and C++. I worked on the aspects of Ui the shoot machanick and the health systems ")},
+    { ProjectNames.Cult_Of_Fire, 
+    new string("Cult of Fire is a strategic top‑down game where you command an army of cultists with the aim to conquer the human territory. The ultimate objective is to demolish the grand castle situated at the corner of the map. This game was developed during a Gamejam within a span of 2 days in Unity. I spent the entire time programming and contributed to various aspects of the game’s development, mainly in the way your characters move")},
+    { ProjectNames.Watten_against_Bots, 
+    new string("Watten Against Bots is a small card game that I made in my first semester at university. It was built from the ground up using HTML and JavaScript. I also tried to create a realistic AI for the game.")},
+    { ProjectNames.I_Have_Been_Bitten, 
+    new string("I Have Been Bitten is a first-person game. It was a uni project made in Unity and C#. The team had 3 people. I mostly worked on the movement and main player feel.")},
+    { ProjectNames.Fading_lights, 
+    new string("Fading Lights was my final project during my bachelor studies. It was made in Unreal Engine with a team of 3 people. I was the main programmer, the lead, and handled almost everything on the programming side. We had one 3D artist for modeling the characters and a level designer.")},
+    { ProjectNames.Määähdreascher,
+    new string("Määähdreascher was made for a gamejam within a span of just two days. This game supports up to four players, each controlling a sheep. The objective is to capture a black sheep that spawns in the center of the game area and bring it to your own altar to oﬀer it to the character known as Rotkäppchen. My primary contribution was the design and implementation of the main menu and the UI.")},
+    { ProjectNames.Reflection_is_the_best_Defence,
+    new string("Reflection is the Best Defence was a small fun project made after the Unity fallout. Another developer and I wanted to try a new engine, so we made the game in GameMaker using its scripting language. I worked on all aspects of the project.")},
+    { ProjectNames.Storm_Robber,
+    new string("Storm Robber is a small godot jump and run made in a week while working full-time during an internship. The goal was to see if it was feasible to work a full day and still develop a game. The other developer wasn’t as experienced, so I helped with everything programming-related, while he focused more on level design.")},
+    { ProjectNames.Wired_West,
+    new string("Wired West was a godot game jam game inspired by Mini Metro we made in 2 days with a team of 5 people. I mostly worked with the artist, who were new to game development. I also handled the UI.")},
+};
+
+private Dictionary<ProjectNames, string> Images => new Dictionary<ProjectNames, string>
+{
+    { ProjectNames.The_Normal_Boxing_Game, 
+    new string("images/TheNormallBoxingGame.png")},
+    { ProjectNames.Remains_Of_The_Rust, 
+    new string("images/RemainsoftheRust.png")},
+    { ProjectNames.Flying_Frogs, 
+    new string("images/FlyingFrogs.png")},
+    { ProjectNames.Inextinguishable, 
+    new string("images/Inextinguishable.jpeg")},
+    { ProjectNames.Cult_Of_Fire, 
+    new string("images/CultOfFire.png")},
+    { ProjectNames.Watten_against_Bots, 
+    new string("images/Watten.png")},
+    { ProjectNames.I_Have_Been_Bitten, 
+    new string("images/IHaveBeenBitten.jpeg")},
+    { ProjectNames.Fading_lights, 
+    new string("images/FadingLights.png")},
+    { ProjectNames.Määähdreascher,
+    new string("images/Määähdrescher.png")},
+    { ProjectNames.Reflection_is_the_best_Defence,
+    new string("images/ReflectionIsTheBestDefence.png")},
+    { ProjectNames.Storm_Robber,
+    new string("images/StormRobber.png")},
+    { ProjectNames.Wired_West,
+    new string("images/WiredWest.png")},
+};
+
+
+
+
+private Dictionary<ProjectNames, string> linkToItch => new Dictionary<ProjectNames, string>
+{
+    { ProjectNames.The_Normal_Boxing_Game, 
+    new String("https://schlutzkrapfen.itch.io/the-normal-boxing-game")},
+    { ProjectNames.Remains_Of_The_Rust, 
+    new String("https://carbonzyro.itch.io/remains-of-the-rust")},
+    { ProjectNames.Flying_Frogs, 
+    new String("https://schlutzkrapfen.itch.io/mmj-2024")},
+    { ProjectNames.Cult_Of_Fire, 
+    new String("https://schlutzkrapfen.itch.io/cult-of-fire")},
+    { ProjectNames.Määähdreascher, 
+    new String("https://schackrei.itch.io/mhdrescher")},
+    { ProjectNames.Wired_West, 
+    new String("https://creativezwerg.itch.io/wired-west")},
+    { ProjectNames.Storm_Robber, 
+    new String("https://schlutzkrapfen.itch.io/storm-robber")},
+    { ProjectNames.Reflection_is_the_best_Defence, 
+    new String("https://schlutzkrapfen.itch.io/reflection-is-the-best-defence")},
+    { ProjectNames.I_Have_Been_Bitten, 
+    new String("https://schlutzkrapfen.itch.io/i-have-been-bitten")}
+};
+private Dictionary<ProjectNames, string> linkToSteam => new Dictionary<ProjectNames, string>
+{
+    { ProjectNames.Flying_Frogs, 
+    new String("https://store.steampowered.com/app/2998670/Flying_Frogs/")},
+    { ProjectNames.Fading_lights, 
+    new String("https://store.steampowered.com/app/3787000/Fading_Lights/")}
+};
+}

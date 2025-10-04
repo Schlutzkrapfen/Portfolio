@@ -1,0 +1,172 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication/MyApplication.csproj": {}
+  },
+  "projects": {
+    "/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/MyApplication.Client.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/MyApplication.Client.csproj",
+        "projectName": "MyApplication.Client",
+        "projectPath": "/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/MyApplication.Client.csproj",
+        "packagesPath": "/home/david/.nuget/packages/",
+        "outputPath": "/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/david/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Components.WebAssembly": {
+              "target": "Package",
+              "version": "[9.*, )"
+            },
+            "Microsoft.NET.ILLink.Tasks": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.9, )",
+              "autoReferenced": true
+            },
+            "Microsoft.NET.Sdk.WebAssembly.Pack": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.9, )",
+              "autoReferenced": true
+            },
+            "MudBlazor": {
+              "target": "Package",
+              "version": "[8.*, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
+              "version": "[9.0.9, 9.0.9]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/home/david/.dotnet/sdk/9.0.305/PortableRuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "browser-wasm": {
+          "#import": []
+        }
+      }
+    },
+    "/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication/MyApplication.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication/MyApplication.csproj",
+        "projectName": "MyApplication",
+        "projectPath": "/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication/MyApplication.csproj",
+        "packagesPath": "/home/david/.nuget/packages/",
+        "outputPath": "/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/david/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/MyApplication.Client.csproj": {
+                "projectPath": "/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/MyApplication.Client.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Components.WebAssembly.Server": {
+              "target": "Package",
+              "version": "[9.*, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/home/david/.dotnet/sdk/9.0.305/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,160 @@
+﻿@page "/Weather"
+
+
+@using Models
+
+
+<PageTitle>Portfolio</PageTitle>
+
+<MudText Typo="Typo.h3" GutterBottom="true">David Messner</MudText>
+<MudText Class="mb-8">Projects</MudText>
+
+<MudButton Typo="Typo.h5"OnClick="OnExpandCollapseClick" >Programming Languges</MudButton>
+<MudCollapse Expanded="_expanded[0]">
+<MudChipSet @bind-SelectedValues="_selectedScripts" SelectionMode="SelectionMode.MultiSelection" CheckMark="_checkMark" Variant="Variant.Text" Color="Color.Info">
+    <MudChip Value="@("Java")" />
+    <MudChip Value="@("C++")" />
+    <MudChip Value="@("C#")" />
+    <MudChip Value="@("Blueprints")" />
+    <MudChip Value="@("Gdscript")" />
+</MudChipSet>
+</MudCollapse>
+<MudButton Typo="Typo.h5" OnClick="OnExpandCollapseClick1" GutterBottom="true">Engine</MudButton>
+<MudCollapse Expanded="_expanded[1]">
+<MudChipSet @bind-SelectedValues="_selectedEngines" SelectionMode="SelectionMode.MultiSelection" CheckMark="_checkMark" Variant="Variant.Text" Color="Color.Info">
+    <MudChip Value="@("Godot")" />
+    <MudChip Value="@("Unity")" />
+    <MudChip Value="@("Gamemaker")" />
+    <MudChip Value="@("Own Game Engine")" />
+</MudChipSet>
+</MudCollapse>
+<MudButton Typo="Typo.h5" OnClick="OnExpandCollapseClick2"GutterBottom="true">Role</MudButton>
+<MudCollapse Expanded="_expanded[2]">
+<MudChipSet @bind-SelectedValues="_selectedRole" SelectionMode="SelectionMode.MultiSelection" CheckMark="_checkMark" Variant="Variant.Text" Color="Color.Info">
+    <MudChip Value="@("Ui")" />
+    <MudChip Value="@("Lead Developer")" />
+    <MudChip Value="@("Main Programmer")" />
+ </MudChipSet>
+ </MudCollapse>
+<MudText Typo="Typo.h5" GutterBottom="true">Size</MudText>
+<MudChipSet @bind-SelectedValues="_selectedSize" SelectionMode="SelectionMode.MultiSelection" CheckMark="_checkMark" Variant="Variant.Text" Color="Color.Info">
+    <MudChip Value="@("Single Project")"/>
+    <MudChip Value="@("Duos")" />
+    <MudChip Value="@("Trios")" />
+    <MudChip Value="@("More than 4")" />
+ </MudChipSet>
+@if(ProjectVisible((int)ProjectNames.The_Normal_Boxing_Game)){
+<MudCard>
+
+    <MudCardMedia Image="images/TheNormallBoxingGame.png" Height="200" />
+    <MudCardContent>
+        <MudText Typo="Typo.h5">The normal Boxing Game</MudText>
+        <MudText Typo="Typo.body2">“The Normal Boxing Game” is an
+engaging ﬁghting game The game
+introduces a unique twist to the
+traditional ﬁghting genre, where each
+break in the ﬁght transitions into a
+mini-game, oﬀering players a variety
+of ways to defeat their enemies. This
+was my ﬁrst venture into game
+development, and I was responsible
+for all aspects of the game’s creation.
+
+     </MudText>
+
+        
+    </MudCardContent>
+    <MudCardActions>
+        <MudButton Variant="Variant.Text" Href="https://schlutzkrapfen.itch.io/the-normal-boxing-game" Color="Color.Primary">Link to Itch</MudButton>
+        <MudSpacer></MudSpacer>
+       @foreach (var item in Projectinfo[(int)ProjectNames.The_Normal_Boxing_Game])
+        {
+            <MudChip T="string">@item</MudChip>
+        }
+
+       
+      
+    </MudCardActions>
+</MudCard>
+}
+ @code
+{
+    private bool _checkMark = true;
+    private IReadOnlyCollection<string> _selectedScripts = ["Java","C++","C#","Blueprints","Gdscript"];
+    private IReadOnlyCollection<string> _selectedEngines = ["Godot","Unity","Gamemaker","Own Game Engine"];
+    private IReadOnlyCollection<string> _selectedRole = ["Ui","Lead Developer","Main Programmer", "Artist"];
+    private IReadOnlyCollection<string> _selectedSize = ["Single Project","Duos","Trios", "More than 4"];
+    
+    bool[] _expanded = new bool[4];
+
+    private void OnExpandCollapseClick() {
+        _expanded[0] = !_expanded[0];
+    }
+    private void OnExpandCollapseClick1() {
+        _expanded[1] = !_expanded[1];
+    }
+    private void OnExpandCollapseClick2() {
+        _expanded[2] = !_expanded[2];
+    }
+private bool ProjectVisible(int x)
+ { 
+        if (_selectedRole.Count == 0||
+        _selectedEngines.Count == 0||
+        _selectedScripts.Count ==0||
+        _selectedSize.Count ==0)
+        {
+            return false;
+        }
+    bool[] Info =  new bool[4];
+   for(int i = 0; i< Info.Length;i++)
+   {
+    Info[i] = false;
+
+   } 
+    foreach (string item in Projectinfo[x])
+    {
+        if(_selectedRole.Contains(item))
+        {
+            Info[0] = true;
+        }
+        if (_selectedEngines.Contains(item))
+        {
+            Info[1] = true;
+        }
+        if(_selectedScripts.Contains(item))
+        {
+            Info[2] = true;
+        }
+        if(_selectedSize.Contains(item))
+        {
+            Info[3] = true;
+        }
+    }
+    foreach(bool item in Info)
+    {
+        if(!item)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+  
+
+
+private Dictionary<int,string[]> Projectinfo =>  FillDictionary();
+
+private Dictionary<int, string[]> FillDictionary()
+{
+    var dict = new Dictionary<int, string[]>();
+    dict.Add((int)ProjectNames.The_Normal_Boxing_Game, new string[] {
+        "Gdscript", "Godot", "Ui", "Lead Developer", "Main Programmer", "Single Project"
+    });
+    return dict;
+}
+
+
+
+
+
+}

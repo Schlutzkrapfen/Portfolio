@@ -54,48 +54,55 @@
 
 @if(ProjectVisible((int)item)){
 <MudCard>
-
-     <MudText Typo="Typo.h3">@ParseEnumToTitle(item)</MudText>
-     <MudCarousel TData="object" Style="height:400px;" ShowBullets="@false">
-
-
-             @foreach (string image in @GetImages(item))
-             {
-                 <MudCarouselItem>
-                     <MudCardMedia Style="height: 400px" Image=@image />
-
-                 </MudCarouselItem>
-             }
-     </MudCarousel>
-    <MudCardContent>
-        <MudText Typo="Typo.body2">
-            <MudHidden Breakpoint.Md>
-        @texts[item]
-</MudHidden>
-     </MudText>
-
-        
-    </MudCardContent>
-    <MudCardActions>
-    @if(linkToItch.ContainsKey(item))
-    {
-        <MudIconButton Icon="@ItchIcon"  Href=@linkToItch[item] Color="Color.Primary"></MudIconButton>
-    }
-    @if(linkToSteam.ContainsKey(item))
-    {
-        <MudIconButton Icon="@Icons.Custom.Brands.Steam" Variant="Variant.Text" Href=@linkToSteam[item] Color="Color.Primary"></MudIconButton>
+    <MudGrid>
+        <MudItem md="12" lg="4">
+            <div class="d-flex justify-center align-center" style="height: 100%;">
+                <MudText Align="Align.Center" Typo="Typo.h3">@ParseEnumToTitle(item)</MudText>
+            </div>
+        </MudItem>
+        <MudItem md="12" lg="8">
+        <MudCarousel TData="object" Style="height:400px;" ShowBullets="@false">
 
 
-    }
-        <MudSpacer></MudSpacer>
-   <MudChipSet T="string">
-       @foreach (var item in Projectinfo[(int)item
-       ])
-        {
-            <MudChip T="string">@item</MudChip>
-        }
-</MudChipSet>
-    </MudCardActions>
+            @foreach (string image in @GetImages(item))
+            {
+                <MudCarouselItem>
+                    <MudCardMedia Style="height: 400px" Image=@image/>
+
+                </MudCarouselItem>
+            }
+        </MudCarousel>
+        <MudCardContent>
+            <MudText Typo="Typo.body2">
+                <MudHidden Breakpoint.Md>
+                    @texts[item]
+                </MudHidden>
+            </MudText>
+
+
+        </MudCardContent>
+        <MudCardActions>
+            @if (linkToItch.ContainsKey(item))
+            {
+                <MudIconButton Icon="@ItchIcon" Href=@linkToItch[item] Color="Color.Primary"></MudIconButton>
+            }
+            @if (linkToSteam.ContainsKey(item))
+            {
+                <MudIconButton Icon="@Icons.Custom.Brands.Steam" Variant="Variant.Text" Href=@linkToSteam[item] Color="Color.Primary"></MudIconButton>
+
+
+            }
+            <MudSpacer></MudSpacer>
+            <MudChipSet T="string">
+                @foreach (var item in Projectinfo[(int)item
+                          ])
+                {
+                    <MudChip T="string">@item</MudChip>
+                }
+            </MudChipSet>
+        </MudCardActions>
+        </MudItem>
+    </MudGrid>
 </MudCard>
 <MudDivider DividerType="DividerType.Middle" Class="my-6"/>
 }

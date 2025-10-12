@@ -72,3 +72,4 @@
 /home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication/obj/Debug/net9.0/MyApplication.pdb
 /home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication/obj/Debug/net9.0/MyApplication.genruntimeconfig.cache
 /home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication/obj/Debug/net9.0/ref/MyApplication.dll
+/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication/obj/Debug/net9.0/MyApplication.sourcelink.json

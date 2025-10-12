@@ -35,16 +35,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L05hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/Pages/Counter.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ291bnRlci5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
 [/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSG9tZS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/Pages/Weather.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvV2VhdGhlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/Routes.razor]

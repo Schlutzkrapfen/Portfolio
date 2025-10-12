@@ -1043,10 +1043,10 @@
 /home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/obj/Debug/net9.0/MyApplication.Client.pdb
 /home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/obj/Debug/net9.0/ref/MyApplication.Client.dll
 /home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/obj/Debug/net9.0/MyApplication.Client.sourcelink.json
-/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/bin/Debug/net9.0/wwwroot/_framework/MyApplication.Client.8tzwz3ltd1.wasm
-/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/bin/Debug/net9.0/wwwroot/_framework/MyApplication.Client.lgfpj6aiex.pdb
-/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/bin/Debug/net9.0/wwwroot/_framework/MyApplication.Client.8tzwz3ltd1.wasm.gz
-/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/bin/Debug/net9.0/wwwroot/_framework/MyApplication.Client.lgfpj6aiex.pdb.gz
-/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/obj/Debug/net9.0/compressed/d0hutzfwk8-8tzwz3ltd1.gz
-/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/obj/Debug/net9.0/compressed/scxftl9261-lgfpj6aiex.gz
-/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/obj/Debug/net9.0/compressed/l9hk9s909f-pza5927q5l.gz
+/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/bin/Debug/net9.0/wwwroot/_framework/MyApplication.Client.9ooj0lv01f.wasm
+/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/bin/Debug/net9.0/wwwroot/_framework/MyApplication.Client.e8am5cac7u.pdb
+/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/bin/Debug/net9.0/wwwroot/_framework/MyApplication.Client.9ooj0lv01f.wasm.gz
+/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/bin/Debug/net9.0/wwwroot/_framework/MyApplication.Client.e8am5cac7u.pdb.gz
+/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/obj/Debug/net9.0/compressed/d0hutzfwk8-9ooj0lv01f.gz
+/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/obj/Debug/net9.0/compressed/scxftl9261-e8am5cac7u.gz
+/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/obj/Debug/net9.0/compressed/l9hk9s909f-4gre86e8mk.gz

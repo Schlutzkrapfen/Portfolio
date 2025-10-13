@@ -3,50 +3,56 @@
 
 <PageTitle>Portfolio</PageTitle>
 
-<MudText Typo="Typo.h2" GutterBottom="true">David Messner</MudText>
-<MudText Typo="Typo.h3" GutterBottom="true">Projects</MudText>
+<MudText Typo="Typo.h1" >David Messner</MudText>
+
+<MudText Typo="Typo.h6" GutterBottom="true">Game Programmer</MudText>
+
+<MudText  GutterBottom="true">Welcome to my portfolio. I specialize in game UI and have worked on many projects with different teams, timeframes, engines, and programming languages. </MudText> 
+<MudText Typo="Typo.h4" GutterBottom="true">Projects</MudText>
 <MudText Typo="Typo.h5" >Filter</MudText>
 <MudExpansionPanels Class="mb-8">
-<MudItem  >
-<MudExpansionPanel Text="Programming Languges" GutterBottom="true" Expanded="true">
-<MudChipSet @bind-SelectedValues="_selectedScripts" SelectionMode="SelectionMode.MultiSelection" CheckMark="_checkMark" Variant="Variant.Text" Color="Color.Info">
-    <MudChip Value="@("C#")" />
-    <MudChip Value="@("Gdscript")" />
-    <MudChip Value="@("C++")" />
-    <MudChip Value="@("Blueprints")" />
-    <MudChip Value="@("JavaScript")" />
-    <MudChip Value="@("GML Code")" />
-</MudChipSet>
-</MudExpansionPanel>
-<MudExpansionPanel Text="Engine" GutterBottom="true" Expanded="true">
-<MudChipSet @bind-SelectedValues="_selectedEngines" SelectionMode="SelectionMode.MultiSelection" CheckMark="_checkMark" Variant="Variant.Text" Color="Color.Info">
-    <MudChip Value="@("Godot")" />
-    <MudChip Value="@("Unity")" />
-    <MudChip Value="@("Unreal")" />
-    <MudChip Value="@("Gamemaker")" />
-    <MudChip Value="@("Own Game Engine")" />
-</MudChipSet>
-</MudExpansionPanel>
-</MudItem>
+    <MudGrid>
+    <MudItem xs="12" sm="6">
+        <MudExpansionPanel Text="Programming Languages" >
+            <MudChipSet @bind-SelectedValues="_selectedScripts" SelectionMode="SelectionMode.MultiSelection" CheckMark="_checkMark" Variant="Variant.Text" Color="Color.Info">
+                <MudChip Value="@("C#")"/>
+                <MudChip Value="@("Gdscript")"/>
+                <MudChip Value="@("C++")"/>
+                <MudChip Value="@("Blueprints")"/>
+                <MudChip Value="@("JavaScript")"/>
+                <MudChip Value="@("GML Code")"/>
+            </MudChipSet>
+        </MudExpansionPanel>
+        <MudExpansionPanel Text="Engine"  >
+            <MudChipSet @bind-SelectedValues="_selectedEngines" SelectionMode="SelectionMode.MultiSelection" CheckMark="_checkMark" Variant="Variant.Text" Color="Color.Info">
+                <MudChip Value="@("Godot")"/>
+                <MudChip Value="@("Unity")"/>
+                <MudChip Value="@("Unreal")"/>
+                <MudChip Value="@("Gamemaker")"/>
+                <MudChip Value="@("Own Game Engine")"/>
+            </MudChipSet>
+        </MudExpansionPanel>
+    </MudItem>
 
-<MudItem >
-<MudExpansionPanel Text="Role" GutterBottom="true" Expanded="true">
-<MudChipSet @bind-SelectedValues="_selectedRole" SelectionMode="SelectionMode.MultiSelection" CheckMark="_checkMark" Variant="Variant.Text" Color="Color.Info">
-    <MudChip Value="@("Ui")" />
-    <MudChip Value="@("Lead Developer")" />
-    <MudChip Value="@("Main Programmer")" />
-    <MudChip Value="@("Game Designer")" />
- </MudChipSet>
-</MudExpansionPanel>
-<MudExpansionPanel Text="Size" GutterBottom="true" Expanded="true">
-<MudChipSet @bind-SelectedValues="_selectedSize" SelectionMode="SelectionMode.MultiSelection" CheckMark="_checkMark" Variant="Variant.Text" Color="Color.Info">
-    <MudChip Value="@("Single Project")"/>
-    <MudChip Value="@("Duos")" />
-    <MudChip Value="@("Trios")" />
-    <MudChip Value="@("More than 4")" />
- </MudChipSet>
-</MudExpansionPanel>
-</MudItem>
+    <MudItem xs="12" sm="6" >
+        <MudExpansionPanel Text="Role"  >
+            <MudChipSet @bind-SelectedValues="_selectedRole" SelectionMode="SelectionMode.MultiSelection" CheckMark="_checkMark" Variant="Variant.Text" Color="Color.Info">
+                <MudChip Value="@("Ui")"/>
+                <MudChip Value="@("Lead Developer")"/>
+                <MudChip Value="@("Main Programmer")"/>
+                <MudChip Value="@("Game Designer")"/>
+            </MudChipSet>
+        </MudExpansionPanel>
+        <MudExpansionPanel Text="Size"  >
+            <MudChipSet @bind-SelectedValues="_selectedSize" SelectionMode="SelectionMode.MultiSelection" CheckMark="_checkMark" Variant="Variant.Text" Color="Color.Info">
+                <MudChip Value="@("Single Project")"/>
+                <MudChip Value="@("Duos")"/>
+                <MudChip Value="@("Trios")"/>
+                <MudChip Value="@("More than 4")"/>
+            </MudChipSet>
+        </MudExpansionPanel>
+    </MudItem>
+    </MudGrid>
 </MudExpansionPanels>
 
 @foreach(ProjectNames item in Enum.GetValues(typeof(ProjectNames)))
@@ -74,8 +80,14 @@
         </MudCarousel>
         <MudCardContent>
             <MudText Typo="Typo.body2">
-                <MudHidden Breakpoint.Md>
-                    @texts[item]
+                <MudHidden Breakpoint="Breakpoint.Xs">
+                    <MudText>@texts[item]</MudText>
+                </MudHidden>
+
+                <MudHidden Breakpoint="Breakpoint.Xs" Invert="true">
+                    <MudExpansionPanel Text="@ParseEnumToTitle(item)">
+                        <MudText>@texts[item]</MudText>
+                    </MudExpansionPanel>
                 </MudHidden>
             </MudText>
 
@@ -94,10 +106,10 @@
             }
             <MudSpacer></MudSpacer>
             <MudChipSet T="string">
-                @foreach (var item in Projectinfo[(int)item
+                @foreach (var mudItem in Projectinfo[(int)item
                           ])
                 {
-                    <MudChip T="string">@item</MudChip>
+                    <MudChip T="string">@mudItem</MudChip>
                 }
             </MudChipSet>
         </MudCardActions>
@@ -110,7 +122,7 @@
 
  @code
 {
-    private bool _checkMark = true;
+    private readonly bool _checkMark = true;
     private IReadOnlyCollection<string> _selectedScripts = ["JavaScript","C++","C#","Blueprints","Gdscript","GML Code"];
     private IReadOnlyCollection<string> _selectedEngines = ["Godot","Unity","Unreal","Gamemaker","Own Game Engine"];
     private IReadOnlyCollection<string> _selectedRole = ["Ui","Lead Developer","Main Programmer", "Game Designer"];
@@ -131,32 +143,32 @@ private bool ProjectVisible(int x)
         {
             return false;
         }
-    bool[] Info =  new bool[4];
-   for(int i = 0; i< Info.Length;i++)
+    bool[] info =  new bool[4];
+   for(int i = 0; i< info.Length;i++)
    {
-    Info[i] = false;
+    info[i] = false;
 
    } 
     foreach (string item in Projectinfo[x])
     {
         if(_selectedRole.Contains(item))
         {
-            Info[0] = true;
+            info[0] = true;
         }
         if (_selectedEngines.Contains(item))
         {
-            Info[1] = true;
+            info[1] = true;
         }
         if(_selectedScripts.Contains(item))
         {
-            Info[2] = true;
+            info[2] = true;
         }
         if(_selectedSize.Contains(item))
         {
-            Info[3] = true;
+            info[3] = true;
         }
     }
-    foreach(bool item in Info)
+    foreach(bool item in info)
     {
         if(!item)
         {
@@ -172,43 +184,51 @@ private Dictionary<int,string[]> Projectinfo =>  FillDictionary();
 
 private Dictionary<int, string[]> FillDictionary()
 {
-    var dict = new Dictionary<int, string[]>();
-    dict.Add((int)ProjectNames.The_Normal_Boxing_Game, new string[] {
-        "Gdscript", "Godot", "Ui", "Lead Developer", "Main Programmer", "Single Project"
-    });
-    dict.Add((int)ProjectNames.Flying_Frogs, new string[] {
-        "Gdscript","C#", "Godot", "Ui", "Lead Developer", "Main Programmer", "More than 4"
-    });
-    dict.Add((int)ProjectNames.Remains_Of_The_Rust, new string[] {
-        "Gdscript", "Godot", "Lead Developer", "Main Programmer", "More than 4","Game Designer"
-    });
-    dict.Add((int)ProjectNames.Määähdreascher, new string[] {
-        "C#", "Unity", "Ui", "More than 4",
-    });
-    dict.Add((int)ProjectNames.Watten_against_Bots, new string[] {
-        "JavaScript", "Own Game Engine","Ui", "Lead Developer", "Main Programmer", "Single Project","Game Designer", 
-    });
-    dict.Add((int)ProjectNames.Inextinguishable, new string[] {
-        "Gdscript", "Own Game Engine","Ui", "Lead Developer", "Main Programmer", "Duos","Game Designer"
-    });
-    dict.Add((int)ProjectNames.Reflection_is_the_best_Defence, new string[] {
-        "GML Code", "Gamemaker", "Lead Developer", "Main Programmer", "Duos","Game Designer"
-    });
-    dict.Add((int)ProjectNames.Wired_West, new string[] {
-        "C#", "Godot", "Ui", "Lead Developer", "More than 4","Game Designer"
-    });
-    dict.Add((int)ProjectNames.Fading_lights, new string[] {
-        "Blueprints", "Unreal",  "Lead Developer", "Main Programmer", "Trios","Game Designer"
-    });
-    dict.Add((int)ProjectNames.Storm_Robber, new string[] {
-        "Gdscript", "Godot",  "Lead Developer", "Main Programmer", "Duos","Game Designer"
-    });
-    dict.Add((int)ProjectNames.Cult_Of_Fire, new string[] {
-        "C#", "Unity",  "Lead Developer", "Main programmer","Game Designer","More than 4",
-    });
-    dict.Add((int)ProjectNames.I_Have_Been_Bitten, new string[] {
-        "C#", "Unity", "Game Designer", "Trios"
-    });
+    var dict = new Dictionary<int, string[]>
+    {
+        {
+            (int)ProjectNames.The_Normal_Boxing_Game, new string[]
+            {
+                "Gdscript", "Godot", "Ui", "Lead Developer", "Main Programmer", "Single Project"
+            }
+        },
+        {
+            (int)ProjectNames.Flying_Frogs, new string[]
+            {
+                "Gdscript", "C#", "Godot", "Ui", "Lead Developer", "Main Programmer", "More than 4"
+            }
+        },
+        { (int)ProjectNames.Remains_Of_The_Rust, new string[] {
+            "Gdscript", "Godot", "Lead Developer", "Main Programmer", "More than 4","Game Designer"
+        } },
+        { (int)ProjectNames.Määähdreascher, new string[] {
+            "C#", "Unity", "Ui", "More than 4",
+        } },
+        { (int)ProjectNames.Watten_against_Bots, new string[] {
+            "JavaScript", "Own Game Engine","Ui", "Lead Developer", "Main Programmer", "Single Project","Game Designer", 
+        } },
+        { (int)ProjectNames.Inextinguishable, new string[] {
+            "Gdscript", "Own Game Engine","Ui", "Lead Developer", "Main Programmer", "Duos","Game Designer"
+        } },
+        { (int)ProjectNames.Reflection_is_the_best_Defence, new string[] {
+            "GML Code", "Gamemaker", "Lead Developer", "Main Programmer", "Duos","Game Designer"
+        } },
+        { (int)ProjectNames.Wired_West, new string[] {
+            "C#", "Godot", "Ui", "Lead Developer", "More than 4","Game Designer"
+        } },
+        { (int)ProjectNames.Fading_lights, new string[] {
+            "Blueprints", "Unreal",  "Lead Developer", "Main Programmer", "Trios","Game Designer","Ui"
+        } },
+        { (int)ProjectNames.Storm_Robber, new string[] {
+            "Gdscript", "Godot",  "Lead Developer", "Main Programmer", "Duos","Game Designer"
+        } },
+        { (int)ProjectNames.Cult_Of_Fire, new string[] {
+            "C#", "Unity",  "Lead Developer", "Main programmer","Game Designer","More than 4",
+        } },
+        { (int)ProjectNames.I_Have_Been_Bitten, new string[] {
+            "C#", "Unity", "Game Designer", "Trios"
+        } }
+    };
     return dict;
 }
 
@@ -224,7 +244,7 @@ private Dictionary<ProjectNames, string> texts => new Dictionary<ProjectNames, s
     },
     {
         ProjectNames.Remains_Of_The_Rust,
-        new string("Remains of the Rust is a top-down horror game that takes players through a haunted mansion This game was a product of a Gamejam. The development process was a collaborative eﬀort with three strangers I met on the internet, all of us with varying skill levels. As the main programmer, I also lent my coding expertise to others on the team and worked many on the Game Feeling and Atmosphere")
+        new string("Remains of the Rust is a top-down horror game that takes players through a haunted mansion This game was a product of a Gamejam. The development process was a collaborative eﬀort with three strangers I met on the internet, all of us with varying skill levels. As the main programmer, I also lent my coding expertise to others on the team and worked on the Game Feeling and Atmosphere")
     },
     {
         ProjectNames.Inextinguishable,
@@ -307,7 +327,7 @@ ProjectNames.Reflection_is_the_best_Defence,
 },
 {
 ProjectNames.Storm_Robber,
-5
+4
 },
 {
 ProjectNames.Wired_West,

@@ -1,0 +1,6 @@
+/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/bin/Release/net9.0/publish/publish-client/web.config
+/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/bin/Release/net9.0/publish/publish-client/MyApplication.Client.staticwebassets.endpoints.json
+/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/bin/Release/net9.0/publish/publish-client/wwwroot/appsettings.Development.json
+/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/bin/Release/net9.0/publish/publish-client/wwwroot/appsettings.json
+/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/bin/Release/net9.0/publish/publish-client/wwwroot/_framework/blazor.boot.json
+/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/bin/Release/net9.0/publish/web.config

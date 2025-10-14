@@ -1,0 +1,1 @@
+/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/publish-client/web.config

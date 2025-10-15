@@ -3,63 +3,62 @@
 
 <PageTitle>Portfolio</PageTitle>
 
-<MudGrid Justify="Justify.SpaceAround">
+<MudGrid >
     <MudItem >
-        <MudText Typo="Typo.h1">David Messner</MudText>
+
+        <MudImage Src="images/Profile.png" ObjectFit="ObjectFit.ScaleDown" Width="null" Height="200" Alt="A Photo of myself" Class="rounded-lg"> </MudImage>
     </MudItem>
     <MudItem >
-        <MudImage Src="images/Profile.png" ObjectFit="ObjectFit.ScaleDown" Width="null" Height="200" Alt="A Photo of myself" Class="rounded-lg"> </MudImage>
+        <MudText Typo="Typo.h1">David Messner</MudText>
+        <MudText Typo="Typo.h6" Style="padding-left: 8px " Color="Color.Info">UI Designer, Developer, Programmer, Game Designer </MudText>
     </MudItem>
 </MudGrid>
 
-<MudText Typo="Typo.h6" GutterBottom="true">Welcome to my portfolio. I specialize in game UI and have worked on many projects with different teams, timeframes, engines and programming languages. </MudText> 
 <MudText Typo="Typo.h4" GutterBottom="true">Projects</MudText>
-<MudText Typo="Typo.h5" >Filter</MudText>
-<MudExpansionPanels Class="mb-8">
+<MudExpansionPanels Class="mb-8" MultiExpansion="true" >
     <MudGrid>
-    <MudItem xs="12" sm="6">
-        <MudExpansionPanel Text="Programming Languages" >
-            <MudChipSet @bind-SelectedValues="_selectedScripts" SelectionMode="SelectionMode.MultiSelection" CheckMark="_checkMark" Variant="Variant.Text" Color="Color.Info">
-                <MudChip Value="@("C#")"/>
-                <MudChip Value="@("Gdscript")"/>
-                <MudChip Value="@("C++")"/>
-                <MudChip Value="@("Blueprints")"/>
-                <MudChip Value="@("JavaScript")"/>
-                <MudChip Value="@("GML Code")"/>
-            </MudChipSet>
-        </MudExpansionPanel>
-        <MudExpansionPanel Text="Engine"  >
-            <MudChipSet @bind-SelectedValues="_selectedEngines" SelectionMode="SelectionMode.MultiSelection" CheckMark="_checkMark" Variant="Variant.Text" Color="Color.Info">
-                <MudChip Value="@("Godot")"/>
-                <MudChip Value="@("Unity")"/>
-                <MudChip Value="@("Unreal")"/>
-                <MudChip Value="@("Gamemaker")"/>
-                <MudChip Value="@("Own Game Engine")"/>
-            </MudChipSet>
-        </MudExpansionPanel>
-    </MudItem>
+        <MudItem xs="12" sm="6">
+            <MudExpansionPanel Text="Programming Languages" >
+                <MudChipSet @bind-SelectedValues="_selectedScripts" SelectionMode="SelectionMode.MultiSelection" CheckMark="_checkMark" Variant="Variant.Text" Color="Color.Info">
+                    <MudChip Value="@("C#")"/>
+                    <MudChip Value="@("Gdscript")"/>
+                    <MudChip Value="@("C++")"/>
+                    <MudChip Value="@("Blueprints")"/>
+                    <MudChip Value="@("JavaScript")"/>
+                    <MudChip Value="@("GML Code")"/>
+                </MudChipSet>
+            </MudExpansionPanel>
+            <MudExpansionPanel Text="Engine"  >
+                <MudChipSet @bind-SelectedValues="_selectedEngines" SelectionMode="SelectionMode.MultiSelection" CheckMark="_checkMark" Variant="Variant.Text" Color="Color.Info">
+                    <MudChip Value="@("Godot")"/>
+                    <MudChip Value="@("Unity")"/>
+                    <MudChip Value="@("Unreal")"/>
+                    <MudChip Value="@("Gamemaker")"/>
+                    <MudChip Value="@("Own Game Engine")"/>
+                </MudChipSet>
+            </MudExpansionPanel>
+        </MudItem>
 
-    <MudItem xs="12" sm="6" >
-        <MudExpansionPanel Text="Role"  >
-            <MudChipSet @bind-SelectedValues="_selectedRole" SelectionMode="SelectionMode.MultiSelection" CheckMark="_checkMark" Variant="Variant.Text" Color="Color.Info">
-                <MudChip Value="@("Ui")"/>
-                <MudChip Value="@("Lead Developer")"/>
-                <MudChip Value="@("Main Programmer")"/>
-                <MudChip Value="@("Game Designer")"/>
-            </MudChipSet>
-        </MudExpansionPanel>
-        <MudExpansionPanel Text="Size"  >
-            <MudChipSet @bind-SelectedValues="_selectedSize" SelectionMode="SelectionMode.MultiSelection" CheckMark="_checkMark" Variant="Variant.Text" Color="Color.Info">
-                <MudChip Value="@("Single Project")"/>
-                <MudChip Value="@("Duos")"/>
-                <MudChip Value="@("Trios")"/>
-                <MudChip Value="@("More than 4")"/>
-            </MudChipSet>
-        </MudExpansionPanel>
-    </MudItem>
+        <MudItem xs="12" sm="6" >
+            <MudExpansionPanel Text="Team-Role"  >
+                <MudChipSet @bind-SelectedValues="_selectedRole" SelectionMode="SelectionMode.MultiSelection" CheckMark="_checkMark" Variant="Variant.Text" Color="Color.Info">
+                    <MudChip Value="@("Ui")"/>
+                    <MudChip Value="@("Lead Developer")"/>
+                    <MudChip Value="@("Main Programmer")"/>
+                    <MudChip Value="@("Game Designer")"/>
+                </MudChipSet>
+            </MudExpansionPanel>
+            <MudExpansionPanel Text="Team-Size"  >
+                <MudChipSet @bind-SelectedValues="_selectedSize" SelectionMode="SelectionMode.MultiSelection" CheckMark="_checkMark" Variant="Variant.Text" Color="Color.Info">
+                    <MudChip Value="@("Single Project")"/>
+                    <MudChip Value="@("Duos")"/>
+                    <MudChip Value="@("Trios")"/>
+                    <MudChip Value="@("More than 4")"/>
+                </MudChipSet>
+            </MudExpansionPanel>
+        </MudItem>
     </MudGrid>
 </MudExpansionPanels>
-
 <MudGrid>
 @foreach(ProjectNames item in Enum.GetValues(typeof(ProjectNames)))
 {
@@ -70,8 +69,6 @@
     <MudItem md="12" lg="@GetSize((int)item)">
 <MudCard>
         <MudCarousel TData="object" Style="height:400px;" ShowBullets="@false">
-
-
             @foreach (string image in @GetImages(item))
             {
                 <MudCarouselItem>
@@ -84,7 +81,7 @@
             <MudText Typo="Typo.body2">
                 <MudText Align="Align.Center" Typo="Typo.h3">@ParseEnumToTitle(item)</MudText>
                 <MudHidden Breakpoint="Breakpoint.Xs">
-                    <MudText Class="pa-4" >@texts[item]</MudText>
+                    <MudText Class="pa-4" >@((MarkupString)texts[item])</MudText>
                 </MudHidden>
 
                 <MudHidden Breakpoint="Breakpoint.Xs" Invert="true">
@@ -108,23 +105,28 @@
 
             }
             <MudSpacer></MudSpacer>
-            <MudChipSet T="string">
+            <MudItem>
                 @foreach (var mudItem in Projectinfo[(int)item
                           ])
                 {
                     <MudChip T="string">@mudItem</MudChip>
                 }
-            </MudChipSet>
+            </MudItem>
         </MudCardActions>
 </MudCard>
     <MudDivider DividerType="DividerType.Middle" Class="my-6"/>
     </MudItem>
 }
+    else{
+    notVisibily++;
+    }
 }
+
 </MudGrid>
 
  @code
-{
+ {
+     private int notVisibily = 0;
     private readonly bool _checkMark = true;
     private IReadOnlyCollection<string> _selectedScripts = ["JavaScript","C++","C#","Blueprints","Gdscript","GML Code"];
     private IReadOnlyCollection<string> _selectedEngines = ["Godot","Unity","Unreal","Gamemaker","Own Game Engine"];
@@ -137,6 +139,7 @@ private string ParseEnumToTitle(ProjectNames myEnum)
 {
     return myEnum.ToString().Replace('_', ' ');
 }
+
 private bool ProjectVisible(int x)
  { 
         if (_selectedRole.Count == 0||
@@ -211,7 +214,7 @@ private Dictionary<int, string[]> FillDictionary()
             "JavaScript", "Own Game Engine","Ui", "Lead Developer", "Main Programmer", "Single Project","Game Designer", 
         } },
         { (int)ProjectNames.Inextinguishable, new string[] {
-            "Gdscript", "Own Game Engine","Ui", "Lead Developer", "Main Programmer", "Duos","Game Designer"
+            "C++", "Own Game Engine","Ui", "Lead Developer", "Main Programmer", "Duos","Game Designer"
         } },
         { (int)ProjectNames.Reflection_is_the_best_Defence, new string[] {
             "GML Code", "Gamemaker", "Lead Developer", "Main Programmer", "Duos","Game Designer"
@@ -239,51 +242,51 @@ private Dictionary<ProjectNames, string> texts => new Dictionary<ProjectNames, s
 {
     {
         ProjectNames.The_Normal_Boxing_Game,
-        new string("The Normal Boxing Game is an engaging ﬁghting game The game introduces a unique twist to the traditional ﬁghting genre, where each break in the ﬁght transitions into a mini-game, oﬀering players a variety of ways to defeat their enemies. This was my ﬁrst venture into game development, and I was responsiblefor all aspects of the game’s creation.")
+        new string("<b>The Normal Boxing Game</b> is an engaging ﬁghting game The game introduces a unique twist to the traditional ﬁghting genre, where each break in the ﬁght transitions into a mini-game, oﬀering players a variety of ways to defeat their enemies. This was my ﬁrst venture into game development, and I was responsiblefor all aspects of the game’s creation.")
     },
     {
         ProjectNames.Flying_Frogs,
-        new string("Flying Frogs, a fast-paced multiplayer game where the mantra is: you are what you eat! Up to four players can compete in this frogtastic frenzy. Your goal? Survive as a fly for as long as possible to rack up points. But be on guard – other players are out to catch you and take your place as the fly!With simple controls and a dose of humor, “Flying Frogs“ offers rapid action and strategic gameplay. Use cunning flight maneuvers to evade your fellow players or team up to become the top fly in the game.")
+        new string("<b>Flying Frogs</b>, a fast-paced multiplayer game where the mantra is: you are what you eat! Up to four players can compete in this frogtastic frenzy. Your goal? Survive as a fly for as long as possible to rack up points. But be on guard – other players are out to catch you and take your place as the fly!With simple controls and a dose of humor, “Flying Frogs“ offers rapid action and strategic gameplay. Use cunning flight maneuvers to evade your fellow players or team up to become the top fly in the game.")
     },
     {
         ProjectNames.Remains_Of_The_Rust,
-        new string("Remains of the Rust is a top-down horror game that takes players through a haunted mansion This game was a product of a Gamejam. The development process was a collaborative eﬀort with three strangers I met on the internet, all of us with varying skill levels. As the main programmer, I also lent my coding expertise to others on the team and worked on the Game Feeling and Atmosphere")
+        new string("<b>Remains of the Rust</b> is a top-down horror game that takes players through a haunted mansion This game was a product of a Gamejam. The development process was a collaborative eﬀort with three strangers I met on the internet, all of us with varying skill levels. As the main programmer, I also lent my coding expertise to others on the team and worked on the Game Feeling and Atmosphere")
     },
     {
         ProjectNames.Inextinguishable,
-        new string("inextinguishable is a Shoot-'em-up survival Game where you are a ﬁre elemental born from a Bonﬁre, left behind by humans in a forest. The forest spirits don't are too happy to see ﬁre in the Forest and are coming to extinguish you. Survive their attack a certain time and you can live on.The game was created collaboratively over a semester from the ground up using SFML and C++. I worked on the aspects of Ui the shoot machanick and the health systems ")
+        new string("<b>inextinguishable</b> is a Shoot-'em-up survival Game where you are a ﬁre elemental born from a Bonﬁre, left behind by humans in a forest. The forest spirits don't are too happy to see ﬁre in the Forest and are coming to extinguish you. Survive their attack a certain time and you can live on.The game was created collaboratively over a semester from the ground up using SFML and C++. I worked on the aspects of Ui the shoot machanick and the health systems ")
     },
     {
         ProjectNames.Cult_Of_Fire,
-        new string("Cult of Fire is a strategic top‑down game where you command an army of cultists with the aim to conquer the human territory. The ultimate objective is to demolish the grand castle situated at the corner of the map. This game was developed during a Gamejam within a span of 2 days in Unity. I spent the entire time programming and contributed to various aspects of the game’s development, mainly in the way your characters move")
+        new string("<b>Cult of Fire</b> is a strategic top‑down game where you command an army of cultists with the aim to conquer the human territory. The ultimate objective is to demolish the grand castle situated at the corner of the map. This game was developed during a Gamejam within a span of 2 days in Unity. I spent the entire time programming and contributed to various aspects of the game’s development, mainly in the way your characters move")
     },
     {
         ProjectNames.Watten_against_Bots,
-        new string("Watten Against Bots is a small card game that I made in my first semester at university. It was built from the ground up using HTML and JavaScript. I also tried to create a realistic AI for the game.")
+        new string("<b>Watten Against Bots</b> is a small card game that I made in my first semester at university. It was built from the ground up using HTML and JavaScript. I also tried to create a realistic AI for the game.")
     },
     {
         ProjectNames.I_Have_Been_Bitten,
-        new string("I Have Been Bitten is a first-person game. It was a uni project made in Unity and C#. The team had 3 people. I mostly worked on the movement and main player feel.")
+        new string("<b>I Have Been Bitten</b> is a first-person game. It was a uni project made in Unity and C#. The team had 3 people. I mostly worked on the movement and main player feel.")
     },
     {
         ProjectNames.Fading_lights,
-        new string("Fading Lights was my final project during my bachelor studies. It was made in Unreal Engine with a team of 3 people. I was the main programmer, the lead, and handled almost everything on the programming side. We had one 3D artist for modeling the characters and a level designer.")
+        new string("<b>Fading Lights</b> was my final project during my bachelor studies. It was made in Unreal Engine with a team of 3 people. I was the main programmer, the lead, and handled almost everything on the programming side. We had one 3D artist for modeling the characters and a level designer.")
     },
     {
         ProjectNames.Määähdreascher,
-        new string("Määähdreascher was made for a gamejam within a span of just two days. This game supports up to four players, each controlling a sheep. The objective is to capture a black sheep that spawns in the center of the game area and bring it to your own altar to oﬀer it to the character known as Rotkäppchen. My primary contribution was the design and implementation of the main menu and the UI.")
+        new string("<b>Määähdreascher</b> was made for a gamejam within a span of just two days. This game supports up to four players, each controlling a sheep. The objective is to capture a black sheep that spawns in the center of the game area and bring it to your own altar to oﬀer it to the character known as Rotkäppchen. My primary contribution was the design and implementation of the main menu and the UI.")
     },
     {
         ProjectNames.Reflection_is_the_best_Defence,
-        new string("Reflection is the Best Defence was a small fun project made after the Unity fallout. Another developer and I wanted to try a new engine, so we made the game in GameMaker using its scripting language. I worked on all aspects of the project.")
+        new string("<b>Reflection is the Best Defence</b> was a small fun project made after the Unity fallout. Another developer and I wanted to try a new engine, so we made the game in GameMaker using its scripting language. I worked on all aspects of the project.")
     },
     {
         ProjectNames.Storm_Robber,
-        new string("Storm Robber is a small godot jump and run made in a week while working full-time during an internship. The goal was to see if it was feasible to work a full day and still develop a game. The other developer wasn’t as experienced, so I helped with everything programming-related, while he focused more on level design.")
+        new string("<b>Storm Robber</b> is a small godot jump and run made in a week while working full-time during an internship. The goal was to see if it was feasible to work a full day and still develop a game.I made most of the programming-related stuff, while the other programmer focused more on level design.")
     },
     {
         ProjectNames.Wired_West,
-        new string("Wired West was a godot game jam game inspired by Mini Metro we made in 2 days with a team of 5 people. I mostly worked with the artist, who were new to game development. I also handled the UI.")
+        new string("<b>Wired West</b> was a godot game jam game inspired by Mini Metro we made in 2 days with a team of 5 people. I mostly worked with the artist, who were new to game development. I also handled the UI.")
     },
 };
 private Dictionary<ProjectNames, int> ImageAmount => new Dictionary<ProjectNames, int>
@@ -354,8 +357,8 @@ ProjectNames.Wired_West,
 
     private int GetSize(int currentItem)
     {
-       
-        if (((currentItem+1) / 2) % 2 == 0)
+        ;
+        if (((currentItem+1 -(notVisibily)) / 2) % 2 == 0)
         {
             return 7;
         }

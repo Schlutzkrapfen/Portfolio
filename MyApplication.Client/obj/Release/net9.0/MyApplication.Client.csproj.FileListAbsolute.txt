@@ -1049,10 +1049,10 @@
 /home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/obj/Release/net9.0/compressed/0wz98yz2xy-tjzqk7tnel.gz
 /home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/obj/Release/net9.0/compressed/7phzern3u3-c6vvywn63k.gz
 /home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/obj/Release/net9.0/compressed/ftca8es1te-ygtz1g7mif.gz
-/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/bin/Release/net9.0/wwwroot/_framework/MyApplication.Client.7jlpmio0pk.wasm
-/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/bin/Release/net9.0/wwwroot/_framework/MyApplication.Client.q7sagm3mi8.pdb
-/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/bin/Release/net9.0/wwwroot/_framework/MyApplication.Client.7jlpmio0pk.wasm.gz
-/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/bin/Release/net9.0/wwwroot/_framework/MyApplication.Client.q7sagm3mi8.pdb.gz
-/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/obj/Release/net9.0/compressed/d0hutzfwk8-7jlpmio0pk.gz
-/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/obj/Release/net9.0/compressed/scxftl9261-q7sagm3mi8.gz
-/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/obj/Release/net9.0/compressed/l9hk9s909f-idue9kac7r.gz
+/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/bin/Release/net9.0/wwwroot/_framework/MyApplication.Client.g349flyzqq.wasm
+/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/bin/Release/net9.0/wwwroot/_framework/MyApplication.Client.qhhxlrbrmi.pdb
+/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/bin/Release/net9.0/wwwroot/_framework/MyApplication.Client.g349flyzqq.wasm.gz
+/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/bin/Release/net9.0/wwwroot/_framework/MyApplication.Client.qhhxlrbrmi.pdb.gz
+/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/obj/Release/net9.0/compressed/d0hutzfwk8-g349flyzqq.gz
+/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/obj/Release/net9.0/compressed/scxftl9261-qhhxlrbrmi.gz
+/home/david/Documents/wichtig/Arbeit/Portfolio/MyApplication/MyApplication.Client/obj/Release/net9.0/compressed/l9hk9s909f-ilmtv1uqmz.gz
